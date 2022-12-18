@@ -1,0 +1,26 @@
+.page {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: $mobile-width;
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+
+  font-family: "Montserrat", "Arial", sans-serif;
+  color: $color-white;
+  overflow-wrap: break-word;
+
+  background-color: $color-purple-500;
+}
+
+.page__header {
+  margin-bottom: 38px;
+}

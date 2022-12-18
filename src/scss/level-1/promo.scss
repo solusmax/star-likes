@@ -1,0 +1,81 @@
+.promo {
+  display: flex;
+  justify-content: center;
+}
+
+.promo__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: $desktop-width;
+  padding-left: $mobile-padding;
+  padding-right: $mobile-padding;
+}
+
+.promo__tagline {
+  margin: 0;
+  margin-bottom: 12px;
+  padding: 0;
+
+  font-weight: 900;
+  font-size: 38px;
+  text-transform: uppercase;
+  line-height: 1;
+  text-shadow: 0 0 55px rgba($color-white, 0.25);
+}
+
+.promo__description {
+  margin: 0;
+  padding: 0;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.promo__features {
+  --background-picture-size: 284px;
+
+  position: relative;
+
+  margin: 0;
+  margin-bottom: 225px;
+  padding: 0;
+
+  list-style: none;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: 4px;
+    left: calc(var(--background-picture-size) / -2);
+
+    width: var(--background-picture-size);
+    height: var(--background-picture-size);
+
+    background-image: url("../img/promo/background-phone.png");
+    background-size: var(--background-picture-size)
+      var(--background-picture-size);
+    background-repeat: no-repeat;
+  }
+
+  @media (min-resolution: 2dppx), (min-resolution: 192dpi) {
+    &::before {
+      background-image: url("../img/promo/background-phone@2x.png");
+    }
+  }
+}
+
+.promo__feature {
+  display: none;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.promo__feature-bold {
+  font-weight: 800;
+}

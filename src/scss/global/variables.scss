@@ -3,7 +3,25 @@
 $fonts: "../fonts";
 $img: "../img";
 
+// Брейкпоинты
+
+$mobile-width: 325px;
+$desktop-width: 1300px;
+
+$mobile-padding: 20px;
+$desktop-padding: 40px;
+
 // Цвета
 
 $color-black: #000000;
 $color-white: #ffffff;
+
+$color-magenta-500: #e04cf9;
+$color-magenta-600: #d944f2;
+$color-purple-50: #fef3fe;
+$color-purple-100: #ceabca;
+$color-purple-150: #c8a7e3;
+$color-purple-250: #7c50a0;
+$color-purple-300: #79418b;
+$color-purple-500: #691a6a;
+$color-pink-500: #ef639a;

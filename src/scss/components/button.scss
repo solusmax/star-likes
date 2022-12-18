@@ -1,0 +1,43 @@
+.button {
+  --button-icon-size: 22px;
+
+  position: relative;
+
+  display: block;
+  width: 284px;
+  min-height: 48px;
+  padding-left: 16px;
+  padding-right: 56px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-radius: 5px;
+  text-align: center;
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  text-decoration: none;
+  color: inherit;
+
+  background-image: linear-gradient(
+    117.04deg,
+    $color-pink-500 1%,
+    $color-magenta-500 105%
+  );
+  background-repeat: no-repeat;
+  box-shadow: 0 0 31.1332px rgba($color-magenta-600, 0.41);
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    right: 40px;
+    top: calc(50% - (var(--button-icon-size) / 2));
+
+    width: var(--button-icon-size);
+    height: var(--button-icon-size);
+
+    background-image: url("../img/button/checkmark.svg");
+    background-repeat: no-repeat;
+  }
+}

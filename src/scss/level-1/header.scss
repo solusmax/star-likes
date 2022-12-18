@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.header__inner {
+  width: 100%;
+  max-width: $desktop-width;
+  padding-left: $mobile-padding;
+  padding-right: $mobile-padding;
+}
