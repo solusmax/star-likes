@@ -1,6 +1,12 @@
 .header {
+  position: relative;
+  z-index: 1;
+
   display: flex;
   justify-content: center;
+  padding-bottom: 13px;
+
+  background-color: $color-pink-900;
 }
 
 .header__inner {

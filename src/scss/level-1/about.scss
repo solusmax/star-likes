@@ -1,0 +1,161 @@
+.about {
+  display: flex;
+  justify-content: center;
+  padding-top: 38px;
+  padding-bottom: 30px;
+
+  background-image: linear-gradient($color-purple-600, $color-brown-900 20%);
+  background-repeat: no-repeat;
+}
+
+.about__inner {
+  width: 100%;
+  max-width: $desktop-width;
+  padding-left: $mobile-padding;
+  padding-right: $mobile-padding;
+}
+
+.about__title {
+  margin: 0;
+  margin-bottom: 14px;
+  padding: 0;
+
+  font-weight: 900;
+  font-size: 38px;
+  line-height: 1;
+  text-shadow: 0 0 73px rgba($color-white, 0.25);
+}
+
+.about__description {
+  margin: 0;
+  margin-bottom: 35px;
+  padding: 0;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.about__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 28px;
+  column-gap: 36px;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  @media (min-width: 500px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 690px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.about__item {
+  --item-picture-size: 78px;
+
+  position: relative;
+
+  width: 125px;
+  padding-top: 92px;
+
+  color: $color-purple-100;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    width: var(--item-picture-size);
+    height: var(--item-picture-size);
+
+    background-image: url("../img/about/mountain.png");
+    background-size: var(--item-picture-size) var(--item-picture-size);
+    background-repeat: no-repeat;
+  }
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    top: calc((var(--item-picture-size) / 6) + 4px);
+    left: calc(var(--item-picture-size) / 6);
+    z-index: 1;
+
+    width: calc(var(--item-picture-size) / 1.5);
+    height: calc(var(--item-picture-size) / 1.5);
+    border-radius: 50%;
+
+    background-color: rgba($color-pink-600, 0.4);
+    box-shadow: 0 0 5px 5px rgba($color-pink-600, 0.4);
+    filter: blur(15px);
+  }
+
+  @media (min-resolution: 2dppx), (min-resolution: 192dpi) {
+    &::before {
+      background-image: url("../img/about/mountain@2x.png");
+    }
+  }
+
+  &--fast {
+    &::before {
+      background-image: url("../img/about/rocket.png");
+    }
+
+    @media (min-resolution: 2dppx), (min-resolution: 192dpi) {
+      &::before {
+        background-image: url("../img/about/rocket@2x.png");
+      }
+    }
+  }
+
+  &--stats {
+    &::before {
+      background-image: url("../img/about/aim.png");
+    }
+
+    @media (min-resolution: 2dppx), (min-resolution: 192dpi) {
+      &::before {
+        background-image: url("../img/about/aim@2x.png");
+      }
+    }
+  }
+
+  &--support {
+    &::before {
+      background-image: url("../img/about/phone.png");
+    }
+
+    @media (min-resolution: 2dppx), (min-resolution: 192dpi) {
+      &::before {
+        background-image: url("../img/about/phone@2x.png");
+      }
+    }
+  }
+}
+
+.about__item-title {
+  margin: 0;
+  margin-bottom: 4px;
+  padding: 0;
+
+  font-weight: 800;
+  font-size: 10px;
+  line-height: 14px;
+}
+
+.about__item-description {
+  margin: 0;
+  padding: 0;
+
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+}

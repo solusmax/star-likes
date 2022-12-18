@@ -1,6 +1,11 @@
 .promo {
   display: flex;
   justify-content: center;
+  padding-top: 50px;
+  padding-bottom: 30px;
+
+  background-image: linear-gradient($color-pink-900, $color-purple-600);
+  background-repeat: no-repeat;
 }
 
 .promo__inner {
