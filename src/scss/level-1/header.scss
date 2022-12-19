@@ -1,12 +1,16 @@
 .header {
   position: relative;
-  z-index: 1;
+  z-index: 5;
 
   display: flex;
   justify-content: center;
   padding-bottom: 13px;
 
   background-color: $color-pink-900;
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    background-color: $color-purple-700;
+  }
 }
 
 .header__inner {
@@ -14,4 +18,9 @@
   max-width: $desktop-width;
   padding-left: $mobile-padding;
   padding-right: $mobile-padding;
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    padding-left: $desktop-padding;
+    padding-right: $desktop-padding;
+  }
 }

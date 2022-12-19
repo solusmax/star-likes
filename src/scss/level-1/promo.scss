@@ -1,4 +1,6 @@
 .promo {
+  --promo-icon-size: 48px;
+
   display: flex;
   justify-content: center;
   padding-top: 50px;
@@ -6,9 +8,22 @@
 
   background-image: linear-gradient($color-pink-900, $color-purple-600);
   background-repeat: no-repeat;
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    padding-top: 148px;
+    padding-bottom: 100px;
+
+    background-image: linear-gradient(
+      $color-purple-700 5%,
+      $color-pink-800 40%,
+      $color-purple-600
+    );
+  }
 }
 
 .promo__inner {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,9 +31,53 @@
   max-width: $desktop-width;
   padding-left: $mobile-padding;
   padding-right: $mobile-padding;
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    align-items: flex-start;
+    padding-left: $desktop-padding;
+    padding-right: $desktop-padding;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      right: -321px;
+      top: -264px;
+      z-index: 15;
+
+      width: 326px;
+      height: 501px;
+
+      background-image: url("../img/promo/background-likes-desktop.png");
+      background-size: 326px 501px;
+      background-repeat: no-repeat;
+      filter: blur(8px);
+    }
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      right: -1421px;
+      top: -1264px;
+      z-index: 5;
+
+      width: 1960px;
+      height: 1500px;
+      border-radius: 50%;
+
+      background-image: linear-gradient(
+        rgba($color-purple-700, 0.5),
+        rgba($color-pink-700, 0.5)
+      );
+      filter: blur(25px);
+    }
+  }
 }
 
 .promo__tagline {
+  position: relative;
+
   margin: 0;
   margin-bottom: 12px;
   padding: 0;
@@ -28,6 +87,50 @@
   text-transform: uppercase;
   line-height: 1;
   text-shadow: 0 0 55px rgba($color-white, 0.25);
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    max-width: 580px;
+    margin-bottom: 21px;
+
+    font-size: 65px;
+    line-height: 66px;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      left: -480px;
+      top: 0;
+      z-index: 15;
+
+      width: 386px;
+      height: 393px;
+
+      background-image: url("../img/promo/background-instagram-desktop.png");
+      background-size: 386px 393px;
+      background-repeat: no-repeat;
+      filter: blur(8px);
+    }
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      left: -2010px;
+      top: -1170px;
+      z-index: 5;
+
+      width: 1960px;
+      height: 1500px;
+      border-radius: 50%;
+
+      background-image: linear-gradient(
+        rgba($color-purple-700, 0.4),
+        rgba($color-pink-700, 0.2)
+      );
+      filter: blur(25px);
+    }
+  }
 }
 
 .promo__description {
@@ -37,6 +140,13 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 17px;
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    max-width: 460px;
+
+    font-size: 20px;
+    line-height: 29px;
+  }
 }
 
 .promo__features {
@@ -54,8 +164,9 @@
     content: "";
 
     position: absolute;
-    top: 4px;
     left: calc(var(--background-picture-size) / -2);
+    top: 4px;
+    z-index: 8;
 
     width: var(--background-picture-size);
     height: var(--background-picture-size);
@@ -71,16 +182,144 @@
       background-image: url("../img/promo/background-phone@2x.png");
     }
   }
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    --background-picture-size: 734px;
+
+    margin-bottom: 48px;
+
+    &::before {
+      top: -443px;
+      left: 462px;
+
+      background-image: url("../img/promo/background-phone-desktop.png");
+    }
+
+    @media (min-resolution: 2dppx), (min-resolution: 192dpi) {
+      &::before {
+        background-image: url("../img/promo/background-phone-desktop@2x.png");
+      }
+    }
+  }
 }
 
 .promo__feature {
+  position: relative;
+
   display: none;
 
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    position: absolute;
+    z-index: 9;
+
+    display: block;
+    width: 232px;
+    min-height: 100px;
+    padding-left: 88px;
+    padding-right: 16px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    border: 2px solid rgba($color-white, 0.4);
+    border-radius: 7px;
+
+    background: $color-magenta-900;
+    box-shadow: 0 0 30px $color-purple-400;
+    backdrop-filter: blur(8px);
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      left: 24px;
+      top: 24px;
+
+      width: var(--promo-icon-size);
+      height: var(--promo-icon-size);
+
+      background-image: url("../img/promo/flash-desktop.png");
+      background-size: var(--promo-icon-size) var(--promo-icon-size);
+      background-repeat: no-repeat;
+    }
+
+    &--first {
+      left: 486px;
+      top: 60px;
+    }
+
+    &--second {
+      left: 842px;
+      top: -388px;
+
+      width: 279px;
+
+      &::before {
+        background-image: url("../img/promo/medal-desktop.png");
+      }
+    }
+
+    &--third {
+      --dot-size: 45px;
+
+      left: 982px;
+      top: 84px;
+
+      width: 100px;
+      height: 100px;
+      padding: 26px;
+
+      &::before {
+        display: none;
+      }
+
+      &::after {
+        content: "4";
+
+        position: absolute;
+        right: calc(var(--dot-size) * 1 / 3 * -1);
+        top: calc(var(--dot-size) * 1 / 3 * -1);
+
+        width: var(--dot-size);
+        height: var(--dot-size);
+        padding: 10px;
+        border: 3px solid rgba($color-white, 0.8);
+        border-radius: 50%;
+        text-align: center;
+
+        font-family: "Arial", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1;
+
+        background-color: $color-red-500;
+        box-shadow: 0 4px 8px rgba($color-red-900, 0.25);
+      }
+    }
+
+    @media (min-resolution: 2dppx), (min-resolution: 192dpi) {
+      &::before {
+        background-image: url("../img/promo/flash-desktop@2x.png");
+      }
+
+      &--second {
+        &::before {
+          background-image: url("../img/promo/medal-desktop@2x.png");
+        }
+      }
+    }
+  }
 }
 
 .promo__feature-bold {
+  display: block;
   font-weight: 800;
+}
+
+.promo__feature-emoji {
+  display: block;
+  width: var(--promo-icon-size);
+  height: var(--promo-icon-size);
 }

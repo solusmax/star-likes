@@ -17,9 +17,32 @@
     border-top: none;
     border-radius: 0 0 10px 10px;
   }
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    width: 220px;
+    height: 136px;
+
+    padding-bottom: 6px;
+    border-width: 2px;
+    border-radius: 16px;
+
+    &--header {
+      border-radius: 0 0 16px 16px;
+    }
+
+    &--footer {
+      border-radius: 16px 16px 0 0;
+      border-bottom: none;
+    }
+  }
 }
 
 .logo__img {
   width: 85px;
   height: 33px;
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    width: 151px;
+    height: 58px;
+  }
 }

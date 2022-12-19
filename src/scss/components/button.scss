@@ -61,6 +61,21 @@
   &:active {
     color: rgba($color-white, 0.7);
   }
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    --button-icon-size: 26px;
+
+    max-width: 324px;
+    min-height: 63px;
+    padding-left: 20px;
+    padding-right: calc(20px + var(--button-icon-size));
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 7px;
+
+    font-size: 20px;
+    line-height: 24px;
+  }
 }
 
 .button__caption {
@@ -81,6 +96,12 @@
     background-image: url("../img/button/checkmark.svg");
     background-repeat: no-repeat;
     transition: var(--transition-duration);
+  }
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    &::before {
+      right: calc(var(--button-icon-size) * -1 - 10px);
+    }
   }
 }
 

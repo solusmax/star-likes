@@ -6,6 +6,10 @@
 
   background-image: linear-gradient($color-purple-600, $color-brown-900 30%);
   background-repeat: no-repeat;
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    padding-top: 208px;
+  }
 }
 
 .about__inner {
