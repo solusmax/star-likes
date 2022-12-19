@@ -29,6 +29,8 @@
 }
 
 .faq__list {
+  width: 100%;
+  max-width: $desktop-width;
   margin: 0;
   margin-bottom: 38px;
   padding: 0;
