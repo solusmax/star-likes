@@ -5,6 +5,17 @@
   padding-right: $mobile-padding;
 
   background-image: linear-gradient($color-pink-950, $color-brown-900);
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    padding-left: $desktop-padding;
+    padding-right: $desktop-padding;
+
+    background-image: linear-gradient(
+      $color-pink-950,
+      $color-pink-1000 35%,
+      $color-brown-900
+    );
+  }
 }
 
 .steps__inner {
@@ -23,6 +34,15 @@
 
   background: rgba($color-magenta-900, 0.27);
   backdrop-filter: blur(6px);
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    max-width: $desktop-width - ($desktop-padding * 2);
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 75px;
+    padding-bottom: 88px;
+    border-radius: 7px;
+  }
 }
 
 .steps__title {
@@ -35,6 +55,10 @@
   font-size: 38px;
   line-height: 1;
   text-shadow: 0 0 73px rgba($color-white, 0.25);
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    font-size: 65px;
+  }
 }
 
 .steps__description {
@@ -46,6 +70,13 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 17px;
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    margin-bottom: 245px;
+
+    font-size: 20px;
+    line-height: 29px;
+  }
 }
 
 .steps__list {
@@ -61,6 +92,14 @@
   color: $color-purple-50;
 
   counter-reset: step;
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 100px;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 84px;
+  }
 }
 
 .steps__item {
@@ -148,6 +187,76 @@
       }
     }
   }
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    --step-icon-width: 159px;
+    --step-icon-height: 129px;
+
+    width: 250px;
+    min-height: 80px;
+    height: 100%;
+    padding-left: 0;
+
+    font-size: 18px;
+    line-height: 21px;
+
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+
+    &:nth-child(2) {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      left: 16px;
+      top: calc((var(--step-icon-height) * -1) - 25px);
+
+      width: var(--step-icon-width);
+      height: var(--step-icon-height);
+
+      background-image: url("../img/steps/cart-desktop.png");
+      background-size: var(--step-icon-width) var(--step-icon-height);
+    }
+
+    &::after {
+      top: calc(-167px + (var(--step-icon-width) / 6));
+      left: calc(24px + (var(--step-icon-height) / 6));
+
+      width: calc(var(--step-icon-width) / 1.3);
+      height: calc(var(--step-icon-height) / 1.3);
+    }
+
+    @media (min-resolution: 2dppx), (min-resolution: 192dpi) {
+      &::before {
+        background-image: url("../img/steps/cart-desktop@2x.png");
+      }
+    }
+
+    &--form {
+      &::before {
+        background-image: url("../img/steps/monitor-desktop.png");
+      }
+
+      @media (min-resolution: 2dppx), (min-resolution: 192dpi) {
+        &::before {
+          background-image: url("../img/steps/monitor-desktop@2x.png");
+        }
+      }
+    }
+
+    &--pay {
+      &::before {
+        background-image: url("../img/steps/money-desktop.png");
+      }
+
+      @media (min-resolution: 2dppx), (min-resolution: 192dpi) {
+        &::before {
+          background-image: url("../img/steps/money-desktop@2x.png");
+        }
+      }
+    }
+  }
 }
 
 .steps__item-inner {
@@ -168,6 +277,22 @@
     font-weight: 800;
     font-size: 38px;
     line-height: 1;
+  }
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    display: flex;
+    align-items: center;
+    max-width: 240px;
+    height: 100%;
+    min-height: 70px;
+    padding-left: 98px;
+
+    &::before {
+      left: 0;
+      top: 8px;
+
+      font-size: 65px;
+    }
   }
 }
 
@@ -194,6 +319,20 @@
     background-image: url("../img/steps/array.svg");
     background-size: var(--steps-array-width) var(--steps-array-height);
     background-repeat: no-repeat;
+  }
+
+  @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
+    --steps-array-width: 60px;
+    --steps-array-height: 97px;
+
+    &::after {
+      left: auto;
+      right: -80px;
+      top: 0;
+      bottom: auto;
+
+      transform: rotate(-95deg);
+    }
   }
 }
 
