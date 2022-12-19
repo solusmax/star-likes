@@ -11,7 +11,6 @@ const gulpIf           = require('gulp-if');
 const gulpWebpack      = require('webpack-stream');
 const htmlmin          = require('gulp-htmlmin');
 const imagemin         = require('gulp-imagemin');
-const inlineSvg        = require('postcss-inline-svg');
 const magicImporter    = require('node-sass-magic-importer');
 const newer            = require('gulp-newer');
 const plumber          = require('gulp-plumber');
@@ -19,7 +18,6 @@ const postcss          = require('gulp-postcss');
 const postcssNormalize = require('postcss-normalize');
 const rename           = require('gulp-rename');
 const sass             = require('gulp-sass')(require('sass'));
-const svgstore         = require('gulp-svgstore');
 const webp             = require('gulp-webp');
 const webpack          = require('webpack');
 
@@ -47,7 +45,6 @@ const SrcFiles = {
   IMG: [`${SrcPaths.IMG}/**/*.{jpg,jpeg,png,gif,svg}`],
   WEBP: [`${SrcPaths.IMG}/**/*.{jpg,jpeg,png}`],
   SVG: [`${SrcPaths.IMG}/**/*.svg`],
-  SVG_SPRITE: [`${SrcPaths.IMG}/**/icon-*.svg`],
   FONTS: [`${SrcPaths.FONTS}/**/*`],
   FAVICON: [`${SrcPaths.FAVICON}/**/*`]
 }
@@ -63,7 +60,6 @@ const BuildPaths = {
 
 const CSS_BUNDLE_FILENAME = 'style.min.css';
 const JS_BUNDLE_FILENAME = 'script.min.js';
-const SVG_SPRITE_FILENAME = 'sprite.svg';
 
 // ************************* ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ***************************
 
@@ -127,9 +123,6 @@ const buildCss = () => {
       importer: magicImporter()
     }).on('error', sass.logError))
     .pipe(postcss([
-      inlineSvg({
-        paths: ['.']
-      }),
       postcssNormalize({
         forceImport: 'normalize.css'
       }),
@@ -211,26 +204,6 @@ const buildWebp = () => {
 
 exports.buildWebp = series(buildWebp);
 
-// SVG-спрайт
-
-const buildSvgSprite = () => {
-  return src(SrcFiles.SVG_SPRITE)
-    .pipe(imagemin([
-      imagemin.svgo({
-        plugins: [{
-          cleanupIDs: true
-        }]
-      })
-    ]))
-    .pipe(svgstore({
-      inlineSvg: true
-    }))
-    .pipe(rename(SVG_SPRITE_FILENAME))
-    .pipe(dest(`${BuildPaths.IMG}`));
-}
-
-exports.buildSvgSprite = series(buildSvgSprite);
-
 // Шрифты
 
 const buildFonts = () => {
@@ -273,8 +246,8 @@ const startServer = () => {
   // Вотчеры
 
   watch(
-    [...SrcFiles.HTML, ...SrcFiles.SVG_SPRITE],
-    series(buildSvgSprite, buildHtml, reloadPage)
+    SrcFiles.HTML,
+    series(buildHtml, reloadPage)
   );
 
   watch(
@@ -315,7 +288,7 @@ const startServer = () => {
 const build = series(
   clearBuildForlder,
   parallel(
-    series(buildSvgSprite, buildHtml),
+    buildHtml,
     buildCss,
     buildJs,
     buildImg,

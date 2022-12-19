@@ -21,3 +21,16 @@
 
   background-color: $color-purple-500;
 }
+
+.page__header {
+  flex-shrink: 0;
+}
+
+.page__main {
+  flex-grow: 1;
+}
+
+.page__footer {
+  flex-shrink: 0;
+  margin-top: auto;
+}
