@@ -33,7 +33,6 @@
   border-radius: 5px;
 
   background: rgba($color-magenta-900, 0.27);
-  backdrop-filter: blur(6px);
 
   @media (min-width: ($desktop-width + ($desktop-padding * 2))) {
     max-width: $desktop-width - ($desktop-padding * 2);
